@@ -19,7 +19,7 @@ void LED::init(){
   timerAlarmEnable(ledTimer);
 }
 
-void LED::start(){
+void LED::excute(){
   if(timerAlarmEnabled(ledTimer)){
     timerAlarmDisable(ledTimer);
     ledLevel = LOW;

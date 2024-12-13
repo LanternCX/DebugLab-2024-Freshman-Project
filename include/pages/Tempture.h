@@ -9,7 +9,7 @@ class Tempture : public Page {
         static DHT dht;
     public:
         void init() override;
-        void start() override;
+        void excute() override;
 };
 
 #endif

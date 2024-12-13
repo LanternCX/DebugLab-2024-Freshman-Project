@@ -9,6 +9,6 @@ class Clock : public Page {
         static int timeStamp;
     public:
         void init() override;
-        void start() override;
+        void excute() override;
 };
 #endif

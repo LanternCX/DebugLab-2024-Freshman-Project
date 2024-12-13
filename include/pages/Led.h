@@ -10,7 +10,7 @@ class LED : public Page{
         static byte ledLevel;
     public:
         void init() override;
-        void start() override;
+        void excute() override;
         void destory() override;
 };
 

@@ -5,6 +5,6 @@
 class Info : public Page {
     public:
         void init() override;
-        void start() override;
+        void excute() override;
 };
 #endif

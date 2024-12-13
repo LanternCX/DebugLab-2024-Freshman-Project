@@ -7,7 +7,7 @@ void Info::init(){
   name = "Info";
 }
 
-void Info::start(){
+void Info::excute(){
   cursor.reset();
   display.clearBuffer();
   display.setFont(u8g2_font_ncenB08_tr);

@@ -11,7 +11,7 @@ void Tempture::init(){
   name = "Tempture";
 }
 
-void Tempture::start(){
+void Tempture::excute(){
   String tempture = String(dht.readTemperature());
   String humidity = String(dht.readHumidity());
 

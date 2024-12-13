@@ -18,7 +18,7 @@ void Bell::init(){
   timerAlarmWrite(bellTimer, 1000 * 5000, true);
 }
 
-void Bell::start(){
+void Bell::excute(){
   if(!timerAlarmEnabled(bellTimer)){
     timerAlarmEnable(bellTimer);
   }

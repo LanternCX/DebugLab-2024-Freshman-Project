@@ -10,7 +10,7 @@ class Bell : public Page{
     public:
         static bool isBellRing;
         void init() override;
-        void start() override;
+        void excute() override;
         void destory() override;
 };
 #endif

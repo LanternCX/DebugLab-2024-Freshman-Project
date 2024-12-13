@@ -51,10 +51,10 @@ void loop(){
   if(inputKey != NO_KEY){
     key = inputKey;
     Serial.printf("Key Down: %c\n", key);
-    menu.start();
+    menu.excute();
   }
   // Excute Function
   if(!menu.isShow){
-    menu.pages[menu.current] -> start();
+    menu.pages[menu.current] -> excute();
   }
 }

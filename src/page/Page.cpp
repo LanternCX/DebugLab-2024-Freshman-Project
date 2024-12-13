@@ -5,7 +5,7 @@ void Page::init() {
     return;
 }
 
-void Page::start() {
+void Page::excute() {
     // default
     return;
 }

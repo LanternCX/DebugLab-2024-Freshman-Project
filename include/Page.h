@@ -6,7 +6,7 @@ class Page{
     public:
         String name;
         virtual void init();
-        virtual void start();
+        virtual void excute();
         virtual void destory();
 };
 
