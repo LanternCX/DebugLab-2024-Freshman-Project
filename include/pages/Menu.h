@@ -3,14 +3,16 @@
 
 #include <Arduino.h>
 #include <Page.h>
+#include <vector>
 
 class Menu : public Page{
   public:
     int static size;
     bool static isShow;
-    static Page * pages[];
-    int static current;
-    void start() override;
+    static std::vector<Page *> pages;
+    static Page * currentPage;
+    int static currentIdx;
+    void excute() override;
     void init() override;
 };
 #endif

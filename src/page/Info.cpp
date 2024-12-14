@@ -15,6 +15,10 @@ void Info::excute(){
   cursor.nextLine();
   display.drawStr(cursor.x, cursor.y, "32408078");
   cursor.nextLine();
-  display.drawStr(cursor.x, cursor.y, String("Key Down: " + String(key)).c_str());
+  static char keyDownNow = ' ';
+  if(key != NO_KEY){
+    keyDownNow = key;
+  }
+  display.drawStr(cursor.x, cursor.y, String("Key Down: " + String(keyDownNow)).c_str());
   display.sendBuffer();
 }

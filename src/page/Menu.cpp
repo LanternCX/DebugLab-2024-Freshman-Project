@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <vector>
 
 #include "init/Init.h"
 
@@ -17,30 +18,33 @@ Clock clockPage;
 Bell bellPage;
 LED ledPage;
 
-Page * Menu::pages[] = {
-    &infoPage,
-    &tempturePage,
-    &clockPage,
-    &bellPage,
-    &ledPage
+std::vector<Page *> Menu::pages = {
+  &infoPage,
+  &tempturePage,
+  &clockPage,
+  &bellPage,
+  &ledPage
 };
-int Menu::size = 5;
-int Menu::current = 0;
+int Menu::size = pages.size();
+int Menu::currentIdx = 0;
 bool Menu::isShow = true;
+Page * Menu::currentPage = pages[0];
+
 void Menu::init(){
-  Menu::start();
+  Menu::excute();
 }
-void Menu::start(){
+void Menu::excute(){
   // Switch function
   if(key == '*' && isShow){
-    current += 1;
-    current %= size;
+    currentIdx += 1;
+    currentIdx %= size;
+    currentPage = pages[currentIdx];
   }
 
   // Exit current function
   if(key == '*' && !isShow){
     isShow = true;
-    pages[current] -> destory();
+    pages[currentIdx] -> destory();
   }
 
   // Enter into selected function
@@ -52,12 +56,12 @@ void Menu::start(){
     cursor.reset();
     display.clearBuffer();
     display.setFont(u8g2_font_ncenB08_tr); 
-    for(int i = 0; i < size; i++){
+    for(auto page : pages){
       String line = "";
-      if(i == current){
+      if(page == currentPage){
         line += ">";
       }
-      line += pages[i] -> name;
+      line += page -> name;
       display.drawStr(cursor.x, cursor.y, line.c_str());
       cursor.nextLine();
     }

@@ -5,6 +5,8 @@
 #include <Keypad.h>
 #include <U8g2lib.h>
 
+#include "pages/Menu.h"
+
 #include "Pins.h"
 
 #include "Cusor.h"
@@ -36,6 +38,11 @@ extern U8G2_SSD1306_128X64_NONAME_F_HW_I2C display;
  * Cursor on OLED display
  */
 extern Cursor cursor;
+
+/**
+ * Menu
+ */
+extern Menu menu;
 
 /**
  * Key down now

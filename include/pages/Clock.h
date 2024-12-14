@@ -6,9 +6,11 @@
 class Clock : public Page {
     private:
         static hw_timer_t * clockTimer;
-        static int timeStamp;
+        static int timeToEdit;
     public:
+        static int timeStamp;
         void init() override;
         void excute() override;
+        void destory() override;
 };
 #endif

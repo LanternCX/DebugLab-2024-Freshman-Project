@@ -45,16 +45,14 @@ void setup(){
 
 void loop(){
   // Read key down now
-  char inputKey;
-  inputKey = keypad.getKey();
+  key = keypad.getKey();
   
-  if(inputKey != NO_KEY){
-    key = inputKey;
+  if(key != NO_KEY){
     Serial.printf("Key Down: %c\n", key);
     menu.excute();
   }
   // Excute Function
   if(!menu.isShow){
-    menu.pages[menu.current] -> excute();
+    menu.pages[menu.currentIdx] -> excute();
   }
 }
