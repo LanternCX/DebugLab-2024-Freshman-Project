@@ -22,12 +22,18 @@ void Bell::excute(){
   if(!timerAlarmEnabled(bellTimer)){
     timerAlarmEnable(bellTimer);
   }
+  cursor.reset();
+  cursor.nextLine();
+  display.clearBuffer();
+  display.setFont(u8g2_font_ncenB12_tr);
+  display.drawStr(cursor.x, cursor.y, String("Bell: " + String(isBellRing ? "Ring" : "Ready")).c_str());
   if (isBellRing) {
       isBellRing = false;
       digitalWrite(BELL, LOW);
-      delay(200);
+      delay(500);
       digitalWrite(BELL, HIGH);
   }
+  display.sendBuffer();
 }
 
 void Bell::destory(){
