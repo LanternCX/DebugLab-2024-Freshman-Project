@@ -14,3 +14,8 @@ void Page::destory() {
     // default
     return;
 }
+
+void Page::loop() {
+    // default
+    return;
+}

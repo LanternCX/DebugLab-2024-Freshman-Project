@@ -55,4 +55,9 @@ void loop(){
   if(!menu.isShow){
     menu.pages[menu.currentIdx] -> excute();
   }
+  
+  // Excute page loop function
+  for(Page * page : menu.pages){
+    page -> loop();
+  }
 }

@@ -18,6 +18,7 @@ Tempture tempturePage;
 Clock clockPage;
 Bell bellPage;
 LED ledPage;
+Alarm alarmPage;
 
 std::vector<Page *> Menu::pages = {
   &infoPage,
@@ -25,6 +26,7 @@ std::vector<Page *> Menu::pages = {
   &clockPage,
   &bellPage,
   &ledPage,
+  &alarmPage
 };
 int Menu::size = pages.size();
 int Menu::currentIdx = 0;
