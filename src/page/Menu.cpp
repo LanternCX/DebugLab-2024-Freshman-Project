@@ -11,6 +11,7 @@
 #include "pages/Clock.h"
 #include "pages/Bell.h"
 #include "pages/Led.h"
+#include "pages/Alarm.h"
 
 Info infoPage;
 Tempture tempturePage;
@@ -23,7 +24,7 @@ std::vector<Page *> Menu::pages = {
   &tempturePage,
   &clockPage,
   &bellPage,
-  &ledPage
+  &ledPage,
 };
 int Menu::size = pages.size();
 int Menu::currentIdx = 0;
@@ -54,15 +55,20 @@ void Menu::excute(){
 
   if(isShow){
     cursor.reset();
+    cursor.nextLine();
     display.clearBuffer();
-    display.setFont(u8g2_font_ncenB08_tr); 
-    for(auto page : pages){
+    for(int i = currentIdx - 1; i <= currentIdx + 1; i++){
+      auto page = pages[(i + pages.size()) % pages.size()];
       String line = "";
-      if(page == currentPage){
+      if(i == currentIdx){
+        display.setFont(u8g2_font_ncenB10_tr);
         line += ">";
+      }else{
+        display.setFont(u8g2_font_ncenB08_tr);
       }
       line += page -> name;
       display.drawStr(cursor.x, cursor.y, line.c_str());
+      cursor.nextLine();
       cursor.nextLine();
     }
     display.sendBuffer();
