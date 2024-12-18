@@ -6,9 +6,9 @@
 
 class LED : public Page{
     private:
-        static hw_timer_t * ledTimer;
         static byte ledLevel;
     public:
+        static hw_timer_t * ledTimer;
         void init() override;
         void excute() override;
         void destory() override;

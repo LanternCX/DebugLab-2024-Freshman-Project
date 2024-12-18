@@ -12,6 +12,7 @@
 #include "pages/Bell.h"
 #include "pages/Led.h"
 #include "pages/Alarm.h"
+#include "pages/Internet.h"
 
 Info infoPage;
 Tempture tempturePage;
@@ -19,6 +20,7 @@ Clock clockPage;
 Bell bellPage;
 LED ledPage;
 Alarm alarmPage;
+Internet internetPage;
 
 std::vector<Page *> Menu::pages = {
   &infoPage,
@@ -26,7 +28,8 @@ std::vector<Page *> Menu::pages = {
   &clockPage,
   &bellPage,
   &ledPage,
-  &alarmPage
+  &alarmPage,
+  &internetPage
 };
 int Menu::size = pages.size();
 int Menu::currentIdx = 0;
