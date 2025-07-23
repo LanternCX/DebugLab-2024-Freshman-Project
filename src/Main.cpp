@@ -33,10 +33,18 @@ void setup(){
   // Start OLED display
   display.begin();
 
-  
+  double persent = 0;
   // Init Pages
   for(int i = 0; i < menu.size; i++){
     menu.pages[i] -> init();
+
+    persent = (i + 1) * 1.0 / menu.size;
+    cursor.reset();
+    display.clearBuffer();
+    display.setFont(u8g2_font_ncenB08_tr);
+    display.drawStr(cursor.x, cursor.y, String("Init: " + String(persent * 100) + "%").c_str());
+    display.sendBuffer();
+    Serial.println(String("Init: " + String(persent * 100) + "%"));
   }
   
   // Init Menu
